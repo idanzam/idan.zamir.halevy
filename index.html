@@ -31,6 +31,18 @@
   
 <body>
   <app-root></app-root>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const basePath = '/idan.zamir.halevy/';
+    const images = document.querySelectorAll('img');
+    images.forEach((img) => {
+      if (!img.src.startsWith('http') && !img.src.startsWith(basePath)) {
+        img.src = basePath + img.getAttribute('src');
+      }
+    });
+  });
+</script>
+  
   <link rel="modulepreload" href="/idan.zamir.halevy/chunk-B3T4LVFS.js">
   <script src="/idan.zamir.halevy/polyfills-FFHMD2TL.js" type="module"></script>
   <script src="/idan.zamir.halevy/main-FXGDM3L4.js" type="module"></script>

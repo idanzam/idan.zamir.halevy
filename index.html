@@ -32,16 +32,19 @@
 <body>
   <app-root></app-root>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const basePath = '/idan.zamir.halevy/';
-    const images = document.querySelectorAll('img');
-    images.forEach((img) => {
-      if (!img.src.startsWith('http') && !img.src.startsWith(basePath)) {
-        img.src = basePath + img.getAttribute('src');
-      }
+    document.addEventListener('DOMContentLoaded', () => {
+      const basePath = '/idan.zamir.halevy/';
+      const images = document.querySelectorAll('img');
+
+      images.forEach((img) => {
+        const src = img.getAttribute('src');
+        // Ensure src is relative and does not start with "http" or already has basePath
+        if (src && !src.startsWith('http') && !src.startsWith(basePath)) {
+          img.setAttribute('src', basePath + src);
+        }
+      });
     });
-  });
-</script>
+  </script>
   
 <!--   <link rel="modulepreload" href="/idan.zamir.halevy/chunk-B3T4LVFS.js">
   <script src="/idan.zamir.halevy/polyfills-FFHMD2TL.js" type="module"></script>
